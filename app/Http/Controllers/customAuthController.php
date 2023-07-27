@@ -17,7 +17,7 @@ class CustomAuthController extends Controller
 {
     public function index()
     {
-        return view(view: 'auth.login');
+        return view('auth.login');
     }
 
     public function customLogin(Request $request)
@@ -27,16 +27,16 @@ class CustomAuthController extends Controller
             'password' => 'required',
         ]);
 
-        $credentials = $request->only(keys: 'email', 'password');
+        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(default: 'dashboard')
+            return redirect()->intended('dashboard')
                 ->withSuccess('Bienvenido');
         }
-        return redirect(to: "login")->withSeccess('Las credenciales son incorrectas');
+        return redirect("login")->withSeccess('Las credenciales son incorrectas');
     }
     public function registration()
     {
-        return view(view: 'auth.registration');
+        return view('auth.registration');
     }
     public function customRegistration(Request $request)
     {
@@ -46,10 +46,10 @@ class CustomAuthController extends Controller
             'password' => 'required|min:6',
         ]);
         $data  = $request->all();
-        $user = this->create($data);
+        $user = $this->create($data);
 
         Auth::login($user);
-        return redirect(to: "dashboard")->withSuccess('Te has registrado sastifactoriamente!');
+        return redirect("dashboard")->withSuccess('Te has registrado sastifactoriamente!');
     }
     public function create(array $data)
     {
@@ -74,9 +74,4 @@ class CustomAuthController extends Controller
 
         return Redirect(to: 'login');
     }
-}
-
-class customAuthController extends Controller
-{
-    //
 }
