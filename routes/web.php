@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\http\Controllers\CategoryController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EmployeeController;
 use App\http\Controllers\ProductController;
 
 
@@ -62,6 +65,66 @@ Route::post('/products/edit/{product}', [ProductController::class, 'update'])
 Route::post('/products/delete/{product}', [ProductController::class, 'destoy'])
 ->name('products.delete');
 
+
+
+//////////////////Department and City////////////////////
+
+Route::get('/departments', [DepartmentController::class, 'index'])
+->name('departments.index');
+
+Route::get('/departments/create',[DepartmentController::class, 'create'])
+->name('departments.create');
+
+Route::post('/departments/create',[DepartmentController::class, 'store'])
+->name('departments.create');
+
+Route::get('/departments/edit/{department}',[DepartmentController::class, 'edit'])
+->name('departments.edit');
+
+Route::post('/departments/edit/{department}', [DepartmentController::class, 'update'])
+->name('departments.edit');
+
+Route::post('/departments/delete/{department}', [DepartmentController::class, 'destroy'])
+->name('departments.delete');
+
+
+Route::get('/cities', [CityController::class, 'index'])
+->name('cities.index');
+
+Route::get('/cities/create',[CityController::class, 'create'])
+->name('cities.create');
+
+Route::post('/cities/create', [CityController::class, 'store'])
+->name('cities.create');
+
+Route::get('/cities/edit/{city}',[CityController::class, 'edit'])
+->name('cities.edit');
+
+Route::post('/cities/edit/{city}', [CityController::class, 'update'])
+->name('cities.edit');
+
+Route::post('/cities/delete/{city}', [CityController::class, 'destoy'])
+->name('cities.delete');
+
+////////////////////Employee///////////////////////
+
+Route::get('/employees', [EmployeeController::class, 'index'])
+->name('employees.index');
+
+Route::get('/employees/create',[EmployeeController::class, 'create'])
+->name('employees.create');
+
+Route::post('/employees/create', [EmployeeController::class, 'store'])
+->name('employees.create');
+
+Route::get('/employees/edit/{employee}',[EmployeeController::class, 'edit'])
+->name('employees.edit');
+
+Route::post('/employees/edit/{employee}', [EmployeeController::class, 'update'])
+->name('employees.edit');
+
+Route::post('/employees/delete/{employee}', [EmployeeController::class, 'destoy'])
+->name('employees.delete');
 
 /*
 |--------------------------------------------------------------------------
