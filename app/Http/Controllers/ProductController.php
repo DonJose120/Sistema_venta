@@ -27,7 +27,7 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
         ]);
         Product::create($data);
-        return back()->with('message', 'Prodcut created.');
+        return back()->with('message', 'product created.');
     }
     public function edit(Product $product)
     {
