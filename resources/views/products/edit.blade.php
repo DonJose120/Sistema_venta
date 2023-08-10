@@ -9,7 +9,7 @@
 <form action="{{ route('products.edit', $product) }}" method="post">
 @csrf
 <div style="margin-bottom: 1em;">
-<label for="name">Name</label>
+<label for="name">name</label>
 <input type="text" name="name" id="name" placeholde="Enter category" value="{{ $product->name }}">
 @error('name')
 <div style="color: red;">{{ $message }}</div>
@@ -22,6 +22,7 @@
 <div style="color: red;">{{ $message }}</div>
 @enderror
 </div>
+
 <div style="margin-bottom: 1em;">
 <label for="category_id">Category</label>
 <select name="category_id" id="category_id">
@@ -38,6 +39,24 @@ value="{{ $category->id }}">{{ $category->name}}</option>
 <div style="color: red;">{{ $message }}</div>
 @enderror
 </div>
+
+<div style="margin-bottom: 1em;">
+<label for="proveedor_id">Proveedor</label>
+<select name="proveedor_id" id="proveedor_id">
+<option value="">Select</option>
+@foreach($proveedors as $proveedor)
+<option
+@if ($proveedor->id === (int) $product->proveedor_id)
+selected
+@endif
+value="{{ $proveedor->id }}">{{ $proveedor->name }}</option>
+@endforeach
+</select>
+@error('proveedor_id')
+<div style="color: red;">{{ $message }}</div>
+@enderror
+</div>
+
 <div>
 <button type="submit">Submit</button>
 </div>

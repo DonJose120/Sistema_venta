@@ -9,8 +9,8 @@
 <form action="{{ route('employees.edit', $employee) }}" method="post">
 @csrf
 <div style="margin-bottom: 1em;">
-<label for="name">Name</label>
-<input type="text" name="name" id="name" placeholder="Enter employee">
+<label for="Name">Name</label>
+<input type="text" name="Name" id="Name" placeholder="Enter employee" value="{{ $employee->Name}}">
 @error('name')
 <div style="color: red;">{{ $message}}</div>
 @enderror

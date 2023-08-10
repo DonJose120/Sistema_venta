@@ -16,13 +16,6 @@
 @enderror
 </div>
 <div style="margin-bottom: 1em;">
-<label for="price">Price</label>
-<input type="text" name="price" id="price" placeholde="Enter Price" value="{{ $city->price }}">
-@error('price')
-<div style="color: red;">{{ $message }}</div>
-@enderror
-</div>
-<div style="margin-bottom: 1em;">
 <label for="department_id">Department</label>
 <select name="department_id" id="department_id">
 <option value="">Select</option>

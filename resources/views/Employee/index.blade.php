@@ -10,11 +10,12 @@
 <td>No.</td>
 <td>Name</td>
 <td>LastName</td>
+<td>Cargo</td>
 <td>Pago</td>
 </tr>
 </thead>
 <tbody>
-@forelse($employees as $key => $Employee)
+@forelse($employees as $key => $employee)
 <tr>
 <td>{{ $employees->firstItem() + $key }}.</td>
 <td>{{ $employee->Name }}</td>

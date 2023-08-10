@@ -11,6 +11,7 @@
 <td>Name</td>
 <td>Price</td>
 <td>Category</td>
+<td>Proveedor</td>
 <td>Action</td>
 </tr>
 </thead>
@@ -22,8 +23,10 @@
 <td>{{ $product->price }}</td>
 <td>
 {{ $product->category->name }}
+{{ $product->proveedor->name }}
 </td>
 <td>
+
 <a href="{{ route('products.edit', $product) }}">Edit</a>
 <form action="{{ route('products.delete', $product) }}" method="post">
 @csrf
