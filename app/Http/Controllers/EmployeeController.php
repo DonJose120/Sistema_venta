@@ -16,7 +16,7 @@ class EmployeeController extends Controller
     }
     public function create()
     {
-        return view('Employee.create');
+        return view('employee.create');
     }
     public function store(Request $request)
     {
@@ -24,7 +24,7 @@ class EmployeeController extends Controller
             'Name' => 'required|max:255',
             'LastName' => 'required|max:255',
             'Cargo' => 'required|max:255',
-            'Pago' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
+            'Pago' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0'
 
         ]);
 
@@ -42,7 +42,7 @@ class EmployeeController extends Controller
             'Name' => 'required|max:255',
             'LastName' => 'required|max:255',
             'Cargo' => 'required|max:255',
-            'Pago' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
+            'Pago' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0'
         ]);
         $employee->update($data);
         return back()->with('message', 'Employee updated.');

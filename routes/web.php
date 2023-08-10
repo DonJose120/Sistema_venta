@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FacturaController;
 use App\http\Controllers\ProductController;
-
-
+use App\Http\Controllers\ProveedorController;
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -62,7 +63,7 @@ Route::post('/products/edit/{product}', [ProductController::class, 'update'])
 ->name('products.edit');
 
 //Eliminar un producto por el id
-Route::post('/products/delete/{product}', [ProductController::class, 'destoy'])
+Route::post('/products/delete/{product}', [ProductController::class, 'destroy'])
 ->name('products.delete');
 
 
@@ -103,7 +104,7 @@ Route::get('/cities/edit/{city}',[CityController::class, 'edit'])
 Route::post('/cities/edit/{city}', [CityController::class, 'update'])
 ->name('cities.edit');
 
-Route::post('/cities/delete/{city}', [CityController::class, 'destoy'])
+Route::post('/cities/delete/{city}', [CityController::class, 'destroy'])
 ->name('cities.delete');
 
 ////////////////////Employee///////////////////////
@@ -123,9 +124,76 @@ Route::get('/employees/edit/{employee}',[EmployeeController::class, 'edit'])
 Route::post('/employees/edit/{employee}', [EmployeeController::class, 'update'])
 ->name('employees.edit');
 
-Route::post('/employees/delete/{employee}', [EmployeeController::class, 'destoy'])
+Route::post('/employees/delete/{employee}', [EmployeeController::class, 'destroy'])
 ->name('employees.delete');
 
+
+
+////////////////////// Clientes ////////////////////////////
+
+
+Route::get('/clientes', [ClienteController::class, 'index'])
+->name('clientes.index');
+
+Route::get('/clientes/create',[ClienteController::class, 'create'])
+->name('clientes.create');
+
+Route::post('/clientes/create', [ClienteController::class, 'store'])
+->name('clientes.create');
+
+Route::get('/clientes/edit/{cliente}',[ClienteController::class, 'edit'])
+->name('clientes.edit');
+
+Route::post('/clientes/edit/{cliente}', [ClienteController::class, 'update'])
+->name('clientes.edit');
+
+Route::post('/clientes/delete/{cliente}', [ClienteController::class, 'destroy'])
+->name('clientes.delete');
+
+
+
+//////////////////////// Proveedor ////////////////////////
+
+Route::get('/proveedors', [ProveedorController::class, 'index'])
+->name('proveedors.index');
+
+Route::get('/proveedors/create',[ProveedorController::class, 'create'])
+->name('proveedors.create');
+
+Route::post('/proveedors/create', [ProveedorController::class, 'store'])
+->name('proveedors.create');
+
+Route::get('/proveedors/edit/{proveedor}',[ProveedorController::class, 'edit'])
+->name('proveedors.edit');
+
+Route::post('/proveedors/edit/{proveedor}', [ProveedorController::class, 'update'])
+->name('proveedors.edit');
+
+Route::post('/proveedors/delete/{proveedor}', [ProveedorController::class, 'destroy'])
+->name('proveedors.delete');
+
+
+
+//////////////////////// Factura ////////////////////////
+
+
+Route::get('/facturas', [FacturaController::class, 'index'])
+->name('facturas.index');
+
+Route::get('/facturas/create',[FacturaController::class, 'create'])
+->name('facturas.create');
+
+Route::post('/facturas/create', [FacturaController::class, 'store'])
+->name('facturas.create');
+
+Route::get('/facturas/edit/{factura}',[FacturaController::class, 'edit'])
+->name('facturas.edit');
+
+Route::post('/facturas/edit/{factura}', [FacturaController::class, 'update'])
+->name('facturas.edit');
+
+Route::post('/facturas/delete/{factura}', [FacturaController::class, 'destroy'])
+->name('facturas.delete');
 /*
 |--------------------------------------------------------------------------
 | Web Routes

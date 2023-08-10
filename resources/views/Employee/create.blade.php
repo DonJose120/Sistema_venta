@@ -3,22 +3,25 @@
 </div>
 
 <h1>Create Employee</h1>
+
 @if(session('message'))
 <div style="color: gree;">{{ session('message') }}</div>
 @endif
+
 <form action="{{ route('employees.create') }}" method="post">
 @csrf
+
 <div style="margint-bottom: 1em;">
-<label for="name">Name</label>
-<input type="text" name="name" id="name" placeholder="Enter Employee">
-@error('name')
+<label for="Name">Name</label>
+<input type="text" name="Name" id="Name" placeholder="Enter Employee">
+@error('Name')
 <div style="color: red;">{{ $message }}</div>
 @enderror
 </div>
 <div style="margint-bottom: 1em;">
 <label for="LastName">LastName</label>
-<input type="text" name="LasName" id="LasName" placeholder="Enter Employee">
-@error('LasName')
+<input type="text" name="LastName" id="LastName" placeholder="Enter Employee">
+@error('LastName')
 <div style="color: red;">{{ $message }}</div>
 @enderror
 </div>
@@ -38,8 +41,7 @@
 @error('Pago')
 <div style="color: red;">{{ $message }}</div>
 @enderror
-</div>
 <div>
-<button type="submit">Registra</button>
+<button type="submit">submit</button>
 </div>
 </form>
