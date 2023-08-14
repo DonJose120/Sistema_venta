@@ -33,8 +33,8 @@ class CityController extends Controller
     }
     public function edit(City $city)
     {
-        $departments = Department::ordeBy('name')->get();
-        return view('cities.edit', compact('cities', 'departments'));
+        $departments = Department::orderBy('name')->get();
+        return view('City.edit', compact('city', 'departments'));
     }
     public function update(City $city, Request $request)
     {

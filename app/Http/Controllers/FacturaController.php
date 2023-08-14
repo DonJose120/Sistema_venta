@@ -27,14 +27,13 @@ class FacturaController extends Controller
     {
         $data = $request->validate([
             'fecha' => 'required|date',
-            'total' => 'required|regex::/^\d{1,13}(\.\d{1,4})?$/|gt:0',
-            'cliente_id' => 'require|integer',
-            'employee_id' => 'require|integer'
+            'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
+            'cliente_id' => 'required|integer',
+            'employee_id' => 'required|integer'
 
         ]);
 
         Factura::create($data);
-
         return back()->with('message', 'Factura created successfully');
     }
     public function edit(Factura $factura)
@@ -51,6 +50,7 @@ class FacturaController extends Controller
             'cliente_id' => 'required|integer',
             'employee_id' => 'required|integer'
         ]);
+
         $factura->update($data);
         return back()->with('message', 'Factura updated.');
     }

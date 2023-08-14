@@ -19,9 +19,9 @@
 <label for="department_id">Department</label>
 <select name="department_id" id="department_id">
 <option value="">Select</option>
-@foreach($department as $Department)
+@foreach($departments as $department)
 <option
-@if ($Department->id === (int) $city->department_id)
+@if ($department->id === (int) $city->department_id)
 selected
 @endif
 value="{{ $department->id }}">{{ $department->name}}</option>
