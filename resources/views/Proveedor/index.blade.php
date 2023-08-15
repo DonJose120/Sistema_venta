@@ -1,5 +1,21 @@
-<div><a href="/">Home</a></div>
-<a href="{{ route('proveedors.create') }}">New Proveedor</a>
+@extends('app')
+@section('content')
+</html>
+<head>
+    <title>edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="login-form">
+        <div class="container my-4">
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <div style="text-align:left">
+                    <div class="my-10 shadow  mb-10 bg-body-tertiary rounded">
+
+<div><a href="/"> <button type="submit" class="btn btn-dark btn-blocktext-light" style="margin-bottom:10px;">Home</button></a></div>
+<a href="{{ route('proveedors.create') }}"><button type="submit" class="btn btn-dark btn-block text-light" style="padding: 7px 20px;">New Proveedor</button></a>
 
 @if(session('message'))
 <div style="color: green;">{{ session('message') }}</div>
@@ -13,6 +29,9 @@
 <td>address</td>
 <td>phone</td>
 <td>correo</td>
+<td>Timestamp</td>
+<td>City</td>
+<td>Action</td>
 </tr>
 </thead>
 <tbody>

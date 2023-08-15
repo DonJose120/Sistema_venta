@@ -40,13 +40,13 @@ class FacturaController extends Controller
     {
         $clientes = Cliente::orderBy('name')->get();
         $employees = Employee::orderBy('Name')->get();
-        return view('facturas.create', compact('clientes', 'employees'));
+        return view('factura.create', compact('clientes', 'employees'));
     }
     public function update(Factura $factura, Request $request)
     {
         $data = $request->validate([
             'fecha' => 'required|date',
-            'total' => 'required|regex::/^\d{1,13}(\.\d{1,4})?$/|gt:0',
+            'total' => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'cliente_id' => 'required|integer',
             'employee_id' => 'required|integer'
         ]);
